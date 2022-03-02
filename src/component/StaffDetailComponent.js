@@ -1,9 +1,18 @@
 import { Breadcrumb, BreadcrumbItem, Card , CardImg, CardText, CardTitle } from 'reactstrap'
 import dateFormat from "dateformat";
 import { Link } from 'react-router-dom'
+import { useState } from 'react';
 
 
 function RenderDetail({staff}) {
+    const [salary, setSalary] = useState('payroll')
+    const [type, setType] = useState('button')
+    console.log(salary)
+    const handlePayroll = () => {
+        setSalary((staff.salaryScale*3000000 + staff.overTime*200000/8).toFixed(0))
+        setType("text")
+    }
+    
     return(
         <div>
               <Card style={{marginTop: 10, border:'none'}}>
@@ -16,12 +25,17 @@ function RenderDetail({staff}) {
                     <p>{`Ngày nghỉ còn lại: ${staff.annualLeave}`}</p>
                     <p>{`Ngày đã đi làm thêm: ${staff.overTime}`}</p>
                     </div>
+                    <div>
+                        <input value={salary} type={type} onClick={handlePayroll} />
+                    </div>
                 </CardText>
 
               </Card>
         </div>
     )
 }
+
+
 
 function RenderImage({staff}) {
     return(

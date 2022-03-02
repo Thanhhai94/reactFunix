@@ -31,7 +31,7 @@ class MainComponents extends Component {
                 <Route exact path='/StaffList' component={() => <StaffListComponent staffs={this.state.staffs}/>} />
                 <Route path='/StaffList/:staffId' component={StaffWithId} />
                 <Route exact path='/Departments' component={() => <Departments depts={this.state.depts}/>}/>
-                <Route exact path='/PayrollSheets' component={() => <PayrollSheets staffs={this.state.staffs}/>}/>
+                <Route exact path='/Salary' component={() => <PayrollSheets staffs={this.state.staffs}/>}/>
                 <Redirect to='StaffList'/>
             </Switch>
         <FooterComponents />

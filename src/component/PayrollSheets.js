@@ -46,7 +46,7 @@ function PayrollSheets(props) {
             <div className="row">
                 <Breadcrumb>
                     <BreadcrumbItem><Link to='/StaffList'>Staff List</Link></BreadcrumbItem>
-                    <BreadcrumbItem active>PayrollSheets</BreadcrumbItem>
+                    <BreadcrumbItem active>Salary</BreadcrumbItem>
                 </Breadcrumb>
                 {list}
             </div>

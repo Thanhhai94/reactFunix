@@ -25,7 +25,7 @@ function HeaderComponent() {
                             <NavLink className='nav-link' to='/Departments'><span className="fa fa-address-card-o fa-lg"></span> Departments</NavLink>
                             </NavItem>
                             <NavItem>
-                            <NavLink className='nav-link' to='/Payrollsheets'><span className="fa fa-money fa-lg"></span> Payrollsheet</NavLink>
+                            <NavLink className='nav-link' to='/Salary'><span className="fa fa-money fa-lg"></span> Salary</NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>
