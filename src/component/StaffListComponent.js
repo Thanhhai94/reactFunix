@@ -27,7 +27,7 @@ const StaffListComponent = (props) => {
 
 
     const filterList = props.staffs.filter(staff_list => {
-        return staff_list.name.toLowerCase().indexOf(searchName.toLowerCase()) !== -1;
+        return staff_list.name.toLowerCase().indexOf(searchName.trim().toLowerCase()) !== -1;
     });
 
     const list = filterList.map((staff) => {
