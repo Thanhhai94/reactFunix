@@ -8,7 +8,7 @@ import Departments from './Departments';
 import PayrollSheets from './PayrollSheets';
 import { DEPARTMENTS, STAFFS } from '../shared/staffs'
 
-
+localStorage.setItem('listStaff', JSON.stringify(STAFFS))
 
 class MainComponents extends Component {
   constructor(props) {
@@ -23,30 +23,41 @@ class MainComponents extends Component {
 
   addNewStaff(newStaff) {
     
-    // this.setState({
-    //   newStaff: newStaff
-    // })
-    
-
-    let newStaffs = localStorage.getItem('newStaffs') ? JSON.parse(localStorage.getItem('newStaffs')) : [];
-
-    // let id = this.state.staffs.length + newStaffs.length
-
-    let addnewStaff= {...newStaff, id : Math.random(), image:  '/assets/images/alberto.png'}
-
-    newStaffs=[...newStaffs, addnewStaff]
-
-    localStorage.setItem('newStaffs', JSON.stringify(newStaffs))
-
-    let newStaffList = JSON.parse(localStorage.getItem('newStaffs'))
-
-    let totalStaff = [...STAFFS, ...newStaffList]
-
     this.setState({
-      staffs : totalStaff
+      newStaff: newStaff
+    })
+    console.log(newStaff)
+
+    let listStaff = JSON.parse(localStorage.getItem('listStaff'))
+
+    let newListStaff = [...listStaff, newStaff]
+    console.log('newListStaff' + newListStaff)
+
+    localStorage.setItem('listStaff', JSON.stringify(newListStaff))
+    this.setState({
+      staffs: newListStaff
     })
 
-    console.log('totalStaff',totalStaff)
+    // let newStaffs = localStorage.getItem('newStaffs') ? JSON.parse(localStorage.getItem('newStaffs')) : [];
+
+    // let id = this.state.staffs.length + newStaffs.length
+    // let newStaff = JSON.parse(localStorage.getItem('newStaffs'))
+
+    // let addnewStaff= {...newStaff, id : 16+newStaffs.length, image:  '/assets/images/alberto.png'}
+
+    // newStaffs=[...newStaffs, addnewStaff]
+
+    // localStorage.setItem('newStaffs', JSON.stringify(newStaffs))
+
+    // let newStaffList = JSON.parse(localStorage.getItem('newStaffs'))
+
+    // let totalStaff = [...STAFFS, ...newStaffList]
+
+    // this.setState({
+    //   staffs : totalStaff
+    // })
+
+    // console.log('totalStaff',totalStaff)
     
   }
 

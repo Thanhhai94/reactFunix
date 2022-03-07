@@ -1,13 +1,11 @@
-import { Breadcrumb, BreadcrumbItem, Card , CardImg, CardText, CardTitle } from 'reactstrap'
+import { Card , CardImg, CardText } from 'reactstrap'
 import dateFormat from "dateformat";
-import { Link } from 'react-router-dom'
 import { useState } from 'react';
 
 
 function RenderDetail({staff}) {
     const [salary, setSalary] = useState('payroll')
     const [type, setType] = useState('button')
-    console.log(salary)
     const handlePayroll = () => {
         setSalary((staff.salaryScale*3000000 + staff.overTime*200000/8).toFixed(0))
         setType("text")
@@ -48,6 +46,7 @@ function RenderImage({staff}) {
 }
 
 const StaffDetailComponent = (props) => {
+    console.log(props.staff.id)
     if(props.staff != null){
         return(
             <div className='container'>

@@ -30,7 +30,7 @@ class StaffListComponent extends Component {
       event.preventDefault()
   }
   toggleModal(){
-      console.log('isModalOpen',this.state.isModalOpen)
+    //   console.log('isModalOpen',this.state.isModalOpen)
       this.setState({
           isModalOpen: !this.state.isModalOpen
       })
@@ -162,7 +162,7 @@ render() {
                             <Row className="form-group spacing">
                                 <Label md={3} sm={3} xs={12} htmlFor="salaryScale">Salary Scale</Label>
                                 <Col md={9} sm={9} xs={12}> 
-                                    <Control model=".salaryScale" type="text" id="salaryScale" name='salaryScale' className="form-control"
+                                    <Control model=".salaryScale" type="number" id="salaryScale" name='salaryScale' className="form-control"
                                         validators={{
                                             required,
                                             maxValue: maxValue(3),
@@ -183,13 +183,13 @@ render() {
                             <Row className="form-group spacing">
                                 <Label md={3} sm={3} xs={12} htmlFor="annualLeave">AnnualLeave</Label>
                                 <Col md={9} sm={9} xs={12}> 
-                                    <Control model=".annualLeave" type="text" id="annualLeave" name='annualLeave' className="form-control" />
+                                    <Control model=".annualLeave" type="number" id="annualLeave" name='annualLeave' className="form-control" />
                                 </Col>
                             </Row>
                             <Row className="form-group spacing">
                                 <Label md={3} sm={3} xs={12} htmlFor="overTime">Over Time</Label>
                                 <Col md={9} sm={9} xs={12}> 
-                                    <Control model="./overTime" type="text" id="overTime" name='overTime' className="form-control" />
+                                    <Control model="./overTime" type="number" id="overTime" name='overTime' className="form-control" />
                                 </Col>
                             </Row>
                             <Row className="form-group spacing">
