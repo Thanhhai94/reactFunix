@@ -38,7 +38,7 @@ class StaffListComponent extends Component {
   }
     
 render() {
-
+    console.log('STAFFLIST ' + JSON.stringify(this.props.staffs));
     const filterList = this.props.staffs.filter(staff_list => staff_list.name.toLowerCase().indexOf(this.state.searchStaff.trim().toLowerCase()) !== -1);
 
     const list = filterList.map((staff) => {
@@ -151,18 +151,18 @@ render() {
                                 <Label md={3} sm={3} xs={12} htmlFor="department">Department</Label>
                                 <Col md={9} sm={9} xs={12}> 
                                     <Control.select model=".department" id="department" name='department' className="form-control">
-                                        <option>Sale</option>
-                                        <option>HR</option>
-                                        <option>Marketing</option>
-                                        <option>IT</option>
-                                        <option>Finance</option>
+                                        <option value="Dept01">Sale</option>
+                                        <option value="Dept02">HR</option>
+                                        <option value="Dept03">Marketing</option>
+                                        <option value="Dept04">IT</option>
+                                        <option value="Dept05">Finance</option>
                                     </Control.select>                                 
                                 </Col>
                             </Row>
                             <Row className="form-group spacing">
                                 <Label md={3} sm={3} xs={12} htmlFor="salaryScale">Salary Scale</Label>
                                 <Col md={9} sm={9} xs={12}> 
-                                    <Control model=".salaryScale" type="number" id="salaryScale" name='salaryScale' className="form-control"
+                                    <Control model=".salaryScale" type="text" id="salaryScale" name='salaryScale' className="form-control"
                                         validators={{
                                             required,
                                             maxValue: maxValue(3),
@@ -183,13 +183,13 @@ render() {
                             <Row className="form-group spacing">
                                 <Label md={3} sm={3} xs={12} htmlFor="annualLeave">AnnualLeave</Label>
                                 <Col md={9} sm={9} xs={12}> 
-                                    <Control model=".annualLeave" type="number" id="annualLeave" name='annualLeave' className="form-control" />
+                                    <Control model=".annualLeave" type="text" id="annualLeave" name='annualLeave' className="form-control" />
                                 </Col>
                             </Row>
                             <Row className="form-group spacing">
-                                <Label md={3} sm={3} xs={12} htmlFor="overTime">Over Time</Label>
+                                <Label md={3} sm={3} xs={12} htmlFor="overTime">OverTime</Label>
                                 <Col md={9} sm={9} xs={12}> 
-                                    <Control model="./overTime" type="number" id="overTime" name='overTime' className="form-control" />
+                                    <Control model=".overTime" type="text" id="overTime" name='overTime' className="form-control" />
                                 </Col>
                             </Row>
                             <Row className="form-group spacing">

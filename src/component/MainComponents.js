@@ -31,19 +31,20 @@ class MainComponents extends Component {
    
 
     let listStaff = JSON.parse(localStorage.getItem('listStaff'))
+    
+    let findDept = DEPARTMENTS.filter(x => x.id === newStaff.department)[0];
 
-    let addNewStaff = {...newStaff, id : listStaff.length, image:'/assets/images/alberto.png' }
+    let addNewStaff = {...newStaff, id : listStaff.length, department: findDept, image:'/assets/images/alberto.png' }
 
     let newListStaff = [...listStaff, addNewStaff]
 
-    console.log('newListStaff' + newListStaff)
+    console.log('newListStaff' + JSON.stringify(newListStaff))
 
     localStorage.setItem('listStaff', JSON.stringify(newListStaff))
     
     this.setState({
       staffs: newListStaff
     })
-
     
   }
 
