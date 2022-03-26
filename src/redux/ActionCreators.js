@@ -86,3 +86,49 @@ export const addStaffDept = (staffDept) => {
         payload: staffDept
     }
 } 
+
+
+export const addNewStaff = (newStaff) => {
+    return {
+        type: ActionTypes.ADD_NEW_STAFF,
+        payload: newStaff
+    }
+}
+export const postNewStaff = (value) => (dispatch) => {
+    const newStaff ={
+        annualLeave: value.annualLeave ,
+        dOB: value.dOB,
+        department: value.department,
+        name: value.name,
+        overTime: value.overTime,
+        salaryScale: value.salaryScale,
+        startDate: value.startDate,
+    }
+    newStaff.image = "/assets/images/alberto.png"
+    
+
+    return fetch(baseUrl + 'staffs', {
+        method: "POST",
+        body: JSON.stringify(newStaff),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        credentials: "same-origin"
+    })
+    .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          var error = new Error('Error ' + response.status + ': ' + response.statusText);
+          error.response = response;
+          throw error;
+        }
+      },
+      error => {
+            throw error;
+      })
+    .then(response => response.json())
+    .then(response => dispatch(addNewStaff(response)))
+    .catch(error =>  { console.log('add new Staff', error.message); alert('Your staff could not be posted\nError: '+error.message); });
+
+}

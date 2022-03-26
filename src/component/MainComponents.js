@@ -7,7 +7,7 @@ import {Switch , Route, Redirect, withRouter } from 'react-router-dom';
 import Departments from './Departments';
 import PayrollSheets from './PayrollSheets';
 import {connect} from 'react-redux';
-import { fetchStaffs,fetchDepts, fetchSalary, fetchStaffDept } from '../redux/ActionCreators';
+import { fetchStaffs,fetchDepts, fetchSalary, fetchStaffDept, postNewStaff } from '../redux/ActionCreators';
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 const mapStateToProps = (state) => {
@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchDepts: () => {dispatch(fetchDepts())},
   fetchSalary: () => {dispatch(fetchSalary())},
   fetchStaffDept: (deptId) => {dispatch(fetchStaffDept(deptId))},
-  
+  postNewStaff: (value) => {dispatch(postNewStaff(value))}
 })
 
 
@@ -64,7 +64,11 @@ class MainComponents extends Component {
   //   })
     
   // }
-
+  addNewStaff = (value) => {
+    console.log(value);
+    this.props.postNewStaff(value)
+   
+  }
 
   onDeptSelect = (deptID) => {
     console.log('SELECTED ID' + deptID);
@@ -78,6 +82,7 @@ class MainComponents extends Component {
     this.props.fetchSalary();
     // this.props.fetchStaffDept();
   }
+
 
   render() {
     const StaffWithId = ({match}) => {

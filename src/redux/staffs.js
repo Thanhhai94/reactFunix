@@ -12,6 +12,10 @@ export const Staffs = ( state = {
             return{...state, isLoading: false, errMess: action.payload};
         case ActionTypes.ADD_STAFFS:
             return{...state, isLoading: false, errMess: null, staffs: action.payload}
+        case ActionTypes.ADD_NEW_STAFF :
+            var newStaff = action.payload
+            newStaff.id = state.staffs.length
+            return {...state, staffs: [...state.staffs, newStaff]}
         default:
             return state
     }

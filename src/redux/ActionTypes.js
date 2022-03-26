@@ -8,4 +8,5 @@ export const SALARY_LOADING = 'SALARY_LOADING';
 export const SALARY_FAILED = 'SALARY_FAILED';
 export const ADD_SALARY = 'ADD_SALARY';
 export const ADD_DEPTSTAFF = 'ADD_DEPTSTAFF';
-export const GET_DEPTID = 'GET_DEPTID'
+export const GET_DEPTID = 'GET_DEPTID';
+export const ADD_NEW_STAFF = 'ADD_NEW_STAFF'
